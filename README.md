@@ -4,6 +4,8 @@ I have introduced the LPC11U35 processor local development environment based on 
 - How to use the I2C port on the LPC11U35
 - How to drive a character LCD using the Sitronix ST7032 driver chip.
 
+[It looks like this:](https://github.com/ahmetonat/LPC11U35_ST7032_LCD_Example/blob/master/LPC11U35_ST7032.jpg)
+
 This LCD driver is actually compatible with the popular [HD44780 driver chip](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller) which has been around almost as long as myself (which is quite some time!)
 
 This code uses the same simple libraries as [my introductory repo](https://github.com/ahmetonat/LPC11U35_LED_BLINK_EXAMPLE), and thus it is extremely lightweight. The I2C interface is used in an interrupt setting, so the interrupt handler must be registered within the startup script startupARMCM0.S. This has already been done in this code, of course.
