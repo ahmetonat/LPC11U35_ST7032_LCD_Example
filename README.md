@@ -29,4 +29,6 @@ During normal use, the following commands will be used such as:
   lcd_message ("NXP LPC11U35");
 ```
 
+The code first displays the greeting message as in the photo, then after 2 seconds, it displays the value of a number converted from int to ASCII.
+
 ["Share and Enjoy!"](https://hitchhikers.fandom.com/wiki/Sirius_Cybernetics_Corporation)
