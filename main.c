@@ -16,7 +16,7 @@
 #include "gpio.h"
 #include "i2c.h"
 #include "lcd_st7032.h"
-
+#include <stdlib.h>
 
 #define LED7_GPIO 0  // LED on GPIO 0,
 #define LED7_BIT  7  // Pin 7.
@@ -38,7 +38,9 @@ int main(void) {
 
   uint32_t mscount=0;
   uint8_t i;
-
+  char LCD_value[16]; //Temporary array to hold printable numbers.
+  
+  
   SystickEvt=False;
   
   GPIOInit();  // Initialize GPIO port.
@@ -58,11 +60,19 @@ int main(void) {
   lcd_i2cInit();
   lcd_init();
 
-  lcd_goto (0,2);
+  lcd_goto (LCD_LINE1,2);
   lcd_message ("NXP LPC11U35");
 
   lcd_goto (1,2);
   lcd_message("LCD: ST7032");
+
+  Delay_ms(2000);
+  
+  lcd_goto (LCD_LINE2,0);
+  itoa ((int)3256, LCD_value, 10);
+  lcd_message("value=          ");
+  lcd_goto (LCD_LINE2,7);
+  lcd_message(LCD_value);
   
   while (1) {
 
